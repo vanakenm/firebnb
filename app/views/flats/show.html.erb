@@ -1,0 +1,27 @@
+
+<h1> <%= @flat.name %></h1>
+
+<p>
+  <%= @flat.description %>
+</p>
+
+<h3>
+  <%= @flat.name %> is owned by <%= @flat.owner.email %>
+</h3>
+
+<% if @flat.owner == current_user %>
+<h2>Bookings: </h2>
+<table class="table table-striped">
+<thead>
+  <th>Who</th><th>From</th><th>To</th>
+</thead>
+<tbody>
+  <% @flat.bookings.each do |booking| %>
+    <tr><td><%= booking.guest.email %></td><td><%= booking.start %></td><td><%= booking.end %></td></tr>
+  <% end %>
+</tbody>
+</table>
+<% end %>
+
+<%= link_to "Book this flat!", new_flat_booking_path(@flat), class: "btn btn-danger" %>
+<%= link_to 'Edit', edit_flat_path(@flat) if @flat.owner == current_user %>

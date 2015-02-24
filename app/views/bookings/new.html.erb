@@ -1,0 +1,13 @@
+<%= simple_form_for([@flat, @booking]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs form-inline">
+    <%= f.label "start: " %> 
+    <%= f.date_select :start %>
+    <%= f.label "end: " %> 
+    <%= f.date_select :end %>
+    <%= f.button :submit %>
+  </div>
+    
+  </div>
+<% end %>

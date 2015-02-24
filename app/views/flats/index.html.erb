@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>City</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @flats.each do |flat| %>
+      <tr>
+        <td><%= link_to flat.name, flat %></td>
+        <td><%= flat.description %></td>
+        <td><%= flat.city %></td>
+        <td><%= flat.address %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Flat', new_flat_path %>
