@@ -33,6 +33,17 @@ Rails.application.configure do
   config.serve_static_assets = true
   config.assets.compile = true
   config.assets.digest = true
+
+  ActionMailer::Base.smtp_settings = {
+    :port =>           '587',
+    :address =>        'smtp.mandrillapp.com',
+    :user_name =>      ENV['MANDRILL_USERNAME'],
+    :password =>       ENV['MANDRILL_APIKEY'],
+    :domain =>         'heroku.com',
+    :authentication => :plain
+  }
+
+ActionMailer::Base.delivery_method = :smtp
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
 
