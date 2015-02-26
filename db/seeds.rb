@@ -10,10 +10,20 @@ u = User.create(email: "martin@lewagon.org",
   password: "testtest", 
   password_confirmation: "testtest")
 
-10.times do 
   Flat.create(name: Faker::Company.name, 
   description: Faker::Lorem.paragraph(4), 
-  city: Faker::Address.city, 
-  address: Faker::Address.street_address, 
+  city: "Brussels", 
+  address: "5 place Sainte Gudule, Bruxelles", 
   owner: u)
-end
+
+  Flat.create(name: Faker::Company.name, 
+  description: Faker::Lorem.paragraph(4), 
+  city: "Brussels", 
+  address: "155 Avenue Churchill, Bruxelles", 
+  owner: u)
+
+  Flat.create(name: Faker::Company.name, 
+  description: Faker::Lorem.paragraph(4), 
+  city: "Antwerp", 
+  address: "1 place du Meir, Anvers", 
+  owner: u)
