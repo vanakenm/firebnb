@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
     @booking.guest = current_user
 
     @booking.save
+    GuestMailer.booking_confirmed(@booking).deliver
 
     redirect_to @flat
   end
